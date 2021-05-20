@@ -52,3 +52,29 @@ class Jogador(pygame.sprite.Sprite):
 
         self.rect.x += self.x_speed
         self.rect.y += self.y_speed 
+
+class inimigo1(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((30, 40))
+        self.image.fill((0,0,0))
+        self.rect = self.image.get_rect()
+        self.rect.y = random.randrange(100,500)
+        self.rect.x = 0
+        self.x_speed = 20
+
+        def update(self):
+            self.rect.x += self.x_speed
+
+class inimigo2(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((60, 20))
+        self.image.fill((0,0,0))
+        self.rect = self.image.get_rect()
+        self.rect.y = random.randrange(50,100)
+        self.rect.x = 0
+        self.x_speed = 20
+
+        def update(self):
+            self.rect.x += self.x_speed

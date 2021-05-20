@@ -1,6 +1,6 @@
 # Importação das bibliotecas:
 import pygame
-from random import randint
+import random
 import os
 import classes_jogo
 
@@ -27,6 +27,18 @@ clock = pygame.time.Clock()
 all_sprites = pygame.sprite.Group()
 JOGADOR = classes_jogo.Jogador()
 all_sprites.add(JOGADOR)
+INIMIGOS = pygame.sprite.Group() 
+#SPAWN DE INIMIGOS:
+for n in range(10):
+    inimigo_1 = classes_jogo.inimigo1()
+    INIMIGOS.add(inimigo_1)
+    all_sprites.add(inimigo_1)
+
+for n in range(10):
+    inimigo_2 = classes_jogo.inimigo2()
+    INIMIGOS.add(inimigo_2)
+    all_sprites.add(inimigo_2)
+
 
 # Loop Principal:
 game = True
