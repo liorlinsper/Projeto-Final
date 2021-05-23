@@ -29,12 +29,12 @@ JOGADOR = classes_jogo.Jogador()
 all_sprites.add(JOGADOR)
 INIMIGOS = pygame.sprite.Group() 
 #SPAWN DE INIMIGOS:
-for n in range(10):
+for n in range(5):
     inimigo_1 = classes_jogo.inimigo1()
     INIMIGOS.add(inimigo_1)
     all_sprites.add(inimigo_1)
 
-for n in range(10):
+for n in range(8):
     inimigo_2 = classes_jogo.inimigo2()
     INIMIGOS.add(inimigo_2)
     all_sprites.add(inimigo_2)
@@ -56,8 +56,8 @@ while game:
     pygame.display.flip()
 
 # Atualização do estado do jogo:
-    pygame.display.update()
     all_sprites.update()
+    pygame.display.update()
 
 # Finalização:
 pygame.quit()

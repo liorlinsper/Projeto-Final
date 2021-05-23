@@ -33,13 +33,13 @@ class Jogador(pygame.sprite.Sprite):
         #COMANDOS: 
         pressionado = pygame.key.get_pressed()
         if pressionado[pygame.K_LEFT]:
-            self.x_speed = -15
+            self.x_speed = -10
         if pressionado[pygame.K_RIGHT]:
-            self.x_speed = 15
+            self.x_speed = 10
         if pressionado[pygame.K_UP]:
-            self.y_speed = -15
+            self.y_speed = -10
         if pressionado[pygame.K_DOWN]:
-            self.y_speed = 15
+            self.y_speed = 10
         
         if self.rect.right > WIDTH:
             self.rect.right = WIDTH
@@ -61,10 +61,15 @@ class inimigo1(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.y = random.randrange(100,500)
         self.rect.x = 0
-        self.x_speed = 20
+        self.x_speed = random.randrange(5, 12)
 
-        def update(self):
-            self.rect.x += self.x_speed
+    def update(self):
+        self.rect.x += self.x_speed
+        if self.rect.x > WIDTH:
+            self.rect.y = random.randrange(100,500)
+            self.rect.x = 0
+            self.x_speed = random.randrange(5, 12)           
+
 
 class inimigo2(pygame.sprite.Sprite):
     def __init__(self):
@@ -74,7 +79,11 @@ class inimigo2(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.y = random.randrange(50,100)
         self.rect.x = 0
-        self.x_speed = 20
+        self.x_speed = random.randrange(5,10)
 
-        def update(self):
-            self.rect.x += self.x_speed
+    def update(self):
+        self.rect.x += self.x_speed
+        if self.rect.x > WIDTH:
+            self.rect.y = random.randrange(100,500)
+            self.rect.x = 0
+            self.x_speed = random.randrange(5, 10)  
