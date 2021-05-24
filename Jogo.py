@@ -58,6 +58,9 @@ while game:
 # Atualização do estado do jogo:
     all_sprites.update()
     pygame.display.update()
+    atinge = pygame.sprite.spritecollide(JOGADOR, INIMIGOS, False)
+    if atinge:
+        game = False
 
 # Finalização:
 pygame.quit()
