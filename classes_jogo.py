@@ -4,8 +4,8 @@ import random
 import os
 
 # Variáveis
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 700
+HEIGHT = 700
 BLACK = (0,0,0)
 
 #Localização dos assets:

@@ -10,8 +10,8 @@ pasta_imagens = os.path.join(pasta_jogo, 'img')
 
 # Variáveis:
 
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 700
+HEIGHT = 700
 FPS = 30
 
 azul_claro = (0,255,255)
