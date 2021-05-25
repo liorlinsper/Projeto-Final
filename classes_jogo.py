@@ -7,6 +7,7 @@ import os
 WIDTH = 700
 HEIGHT = 700
 BLACK = (0,0,0)
+WHITE = (255,255,255)
 
 #Localização dos assets:
 pasta_jogo = os.path.dirname(__file__)
@@ -53,11 +54,12 @@ class Jogador(pygame.sprite.Sprite):
         self.rect.x += self.x_speed
         self.rect.y += self.y_speed 
 
-class inimigo1(pygame.sprite.Sprite):
+class Cobra(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((30, 40))
-        self.image.fill((0,0,0))
+        self.image = pygame.image.load(os.path.join(pasta_imagens, "snake.png")).convert()
+        self.image.set_colorkey(WHITE)
+        self.image = pygame.transform.scale(self.image, (60, 40))
         self.rect = self.image.get_rect()
         self.rect.y = random.randrange(100,500)
         self.rect.x = 0
@@ -79,11 +81,11 @@ class inimigo2(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.y = random.randrange(50,100)
         self.rect.x = 0
-        self.x_speed = random.randrange(5,10)
+        self.x_speed = random.randrange(15,20)
 
     def update(self):
         self.rect.x += self.x_speed
         if self.rect.x > WIDTH:
             self.rect.y = random.randrange(100,500)
             self.rect.x = 0
-            self.x_speed = random.randrange(5, 10)  
+            self.x_speed = random.randrange(15, 20)  

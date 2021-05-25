@@ -30,11 +30,11 @@ all_sprites.add(JOGADOR)
 INIMIGOS = pygame.sprite.Group() 
 #SPAWN DE INIMIGOS:
 for n in range(5):
-    inimigo_1 = classes_jogo.inimigo1()
-    INIMIGOS.add(inimigo_1)
-    all_sprites.add(inimigo_1)
+    Cobras = classes_jogo.Cobra()
+    INIMIGOS.add(Cobras)
+    all_sprites.add(Cobras)
 
-for n in range(8):
+for n in range(4):
     inimigo_2 = classes_jogo.inimigo2()
     INIMIGOS.add(inimigo_2)
     all_sprites.add(inimigo_2)
