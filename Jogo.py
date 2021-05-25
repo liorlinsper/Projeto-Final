@@ -34,11 +34,12 @@ for n in range(5):
     INIMIGOS.add(Cobras)
     all_sprites.add(Cobras)
 
-for n in range(4):
-    inimigo_2 = classes_jogo.inimigo2()
-    INIMIGOS.add(inimigo_2)
-    all_sprites.add(inimigo_2)
+for n in range(3):
+    Cachorros = classes_jogo.Cachorro()
+    INIMIGOS.add(Cachorros)
+    all_sprites.add(Cachorros)
 
+# SPAWN DE LIBELULAS
 for n in range(1):
     libelulas = classes_jogo.libelula()
     all_sprites.add(libelulas)

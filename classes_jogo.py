@@ -73,22 +73,23 @@ class Cobra(pygame.sprite.Sprite):
             self.x_speed = random.randrange(5, 12)           
 
 
-class inimigo2(pygame.sprite.Sprite):
+class Cachorro(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((60, 20))
-        self.image.fill((0,0,0))
+        self.image = pygame.image.load(os.path.join(pasta_imagens, "cachorro.png")).convert()
+        self.image = pygame.transform.scale(self.image, (120, 80))
+        self.image.set_colorkey(WHITE)
         self.rect = self.image.get_rect()
         self.rect.y = random.randrange(50,100)
         self.rect.x = 0
-        self.x_speed = random.randrange(15,20)
+        self.x_speed = random.randrange(5,10)
 
     def update(self):
         self.rect.x += self.x_speed
         if self.rect.x > WIDTH:
             self.rect.y = random.randrange(100,500)
             self.rect.x = 0
-            self.x_speed = random.randrange(15, 20)  
+            self.x_speed = random.randrange(5, 10)  
 
 class libelula(pygame.sprite.Sprite):
     def __init__(self):
