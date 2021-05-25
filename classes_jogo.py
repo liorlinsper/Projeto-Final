@@ -89,3 +89,16 @@ class inimigo2(pygame.sprite.Sprite):
             self.rect.y = random.randrange(100,500)
             self.rect.x = 0
             self.x_speed = random.randrange(15, 20)  
+
+class libelula(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image =  pygame.image.load(os.path.join(pasta_imagens, "libelula.png")).convert()
+        self.image.set_colorkey(WHITE)
+        self.rect = self.image.get_rect()
+        self.image = pygame.transform.scale(self.image, (30 , 40))
+        self.rect.y = random.randrange(0,800)
+        self.rect.x = random.randrange(0,800)
+
+
+   

@@ -39,6 +39,9 @@ for n in range(4):
     INIMIGOS.add(inimigo_2)
     all_sprites.add(inimigo_2)
 
+for n in range(1):
+    libelulas = classes_jogo.libelula()
+    all_sprites.add(libelulas)
 
 # Loop Principal:
 game = True
@@ -58,6 +61,7 @@ while game:
 # Atualização do estado do jogo:
     all_sprites.update()
     pygame.display.update()
+    #colisão
     atinge = pygame.sprite.spritecollide(JOGADOR, INIMIGOS, False)
     if atinge:
         game = False
