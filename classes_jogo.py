@@ -55,9 +55,9 @@ class Jogador(pygame.sprite.Sprite):
         self.rect.y += self.y_speed 
 
 class Cobra(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self,imagem_cobra):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(os.path.join(pasta_imagens, "snake.png")).convert()
+        self.image = imagem_cobra
         self.image.set_colorkey(WHITE)
         self.image = pygame.transform.scale(self.image, (60, 40))
         self.rect = self.image.get_rect()
@@ -74,9 +74,9 @@ class Cobra(pygame.sprite.Sprite):
 
 
 class Cachorro(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self,imagem_cachorro):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(os.path.join(pasta_imagens, "cachorro.png")).convert()
+        self.image = imagem_cachorro
         self.image = pygame.transform.scale(self.image, (120, 80))
         self.image.set_colorkey(WHITE)
         self.rect = self.image.get_rect()
@@ -92,14 +92,14 @@ class Cachorro(pygame.sprite.Sprite):
             self.x_speed = random.randrange(5, 10)  
 
 class libelula(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self,imagem_libelula):
         pygame.sprite.Sprite.__init__(self)
-        self.image =  pygame.image.load(os.path.join(pasta_imagens, "libelula.png")).convert()
+        self.image =  imagem_libelula
         self.image.set_colorkey(WHITE)
-        self.rect = self.image.get_rect()
         self.image = pygame.transform.scale(self.image, (30 , 40))
-        self.rect.y = random.randrange(0,800)
-        self.rect.x = random.randrange(0,800)
+        self.rect = self.image.get_rect()
+        self.rect.y = random.randrange(0,600)
+        self.rect.x = random.randrange(0,600)
 
 
    
