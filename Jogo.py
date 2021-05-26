@@ -67,7 +67,7 @@ while game:
             game = False
 
     #colisão
-    atinge = pygame.sprite.spritecollide(JOGADOR, INIMIGOS, False)
+    atinge = pygame.sprite.spritecollide(JOGADOR, INIMIGOS, False, pygame.sprite.collide_circle)
     if atinge:
         game = False
 

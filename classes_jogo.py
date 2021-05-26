@@ -61,6 +61,8 @@ class Cobra(pygame.sprite.Sprite):
         self.image.set_colorkey(WHITE)
         self.image = pygame.transform.scale(self.image, (60, 40))
         self.rect = self.image.get_rect()
+        self.radius = int(self.rect.width * .8 / 2)
+        # pygame.draw.circle(self.image, BLACK, self.rect.center, self.radius)
         self.rect.y = random.randrange(100,500)
         self.rect.x = 0
         self.x_speed = random.randrange(5, 12)
@@ -80,6 +82,8 @@ class Cachorro(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (120, 80))
         self.image.set_colorkey(WHITE)
         self.rect = self.image.get_rect()
+        self.radius = 45
+        # pygame.draw.circle(self.image, BLACK, self.rect.center, self.radius)
         self.rect.y = random.randrange(50,100)
         self.rect.x = 0
         self.x_speed = random.randrange(5,10)
