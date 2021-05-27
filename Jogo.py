@@ -29,6 +29,7 @@ clock = pygame.time.Clock()
 imagem_libelula = pygame.image.load(os.path.join(pasta_imagens, "libelula.png")).convert()
 imagem_cachorro = pygame.image.load(os.path.join(pasta_imagens, "cachorro.png")).convert()
 imagem_cobra = pygame.image.load(os.path.join(pasta_imagens, "snake.png")).convert()
+background = pygame.image.load(os.path.join(pasta_imagens, "terra.png")).convert()
 
 #Sprites:
 all_sprites = pygame.sprite.Group()
@@ -80,6 +81,7 @@ while game:
 
     #draw:
     window.fill((branco))
+    window.blit(background, (0, 0))
     all_sprites.draw(window)
     LIBELULAS.draw(window)
     pygame.display.flip()
