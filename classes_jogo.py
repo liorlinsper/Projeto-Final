@@ -54,6 +54,8 @@ class Jogador(pygame.sprite.Sprite):
         self.rect.x += self.x_speed
         self.rect.y += self.y_speed 
 
+# INIMIGOS
+
 class Cobra(pygame.sprite.Sprite):
     def __init__(self,imagem_cobra):
         pygame.sprite.Sprite.__init__(self)
@@ -95,6 +97,27 @@ class Cachorro(pygame.sprite.Sprite):
             self.rect.x = 0
             self.x_speed = random.randrange(5, 10)  
 
+class Passaro(pygame.sprite.Sprite):
+    def __init__(self,imagem_passaro):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = imagem_passaro
+        self.image = pygame.transform.scale(self.image, (120, 80))
+        self.image.set_colorkey(WHITE)
+        self.rect = self.image.get_rect()
+        self.radius = 45
+        # pygame.draw.circle(self.image, BLACK, self.rect.center, self.radius)
+        self.rect.y = random.randrange(50,100)
+        self.rect.x = 0
+        self.x_speed = random.randrange(10,12)
+
+    def update(self):
+        self.rect.x += self.x_speed
+        if self.rect.x > WIDTH:
+            self.rect.y = random.randrange(100,500)
+            self.rect.x = 0
+            self.x_speed = random.randrange(11, 13)  
+
+#LIBÉLULA (PONTUAÇÃO)
 class libelula(pygame.sprite.Sprite):
     def __init__(self,imagem_libelula):
         pygame.sprite.Sprite.__init__(self)
