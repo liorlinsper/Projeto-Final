@@ -44,6 +44,7 @@ imagem_cachorro = pygame.image.load(os.path.join(pasta_imagens, "cachorro.png"))
 imagem_cobra = pygame.image.load(os.path.join(pasta_imagens, "snake.png")).convert()
 imagem_passaro = pygame.image.load(os.path.join(pasta_imagens, "passaro.png")).convert()
 background = pygame.image.load(os.path.join(pasta_imagens, "terra.png")).convert()
+background2 = pygame.image.load(os.path.join(pasta_imagens, "FundoMenu.png")).convert()
 
 
 #Sprites:
@@ -70,10 +71,26 @@ score = 0
 score_anterior = 0
 
 # Loop Principal:
+menu = True
 game = True
 
 while game:
     clock.tick(FPS)
+    
+    while menu:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    menu = False
+            
+        window.fill((0,0,0))
+        clock.tick(30)
+        window.blit(background2,(0,0))
+        pygame.display.update()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -82,8 +99,7 @@ while game:
     #colisão
     atinge = pygame.sprite.spritecollide(JOGADOR, INIMIGOS, False, pygame.sprite.collide_circle)
     if atinge:
-        pass
-        # game = False
+        menu = True
 
     #Pontuação:
     pontos = pygame.sprite.spritecollide(JOGADOR, LIBELULAS, True)
@@ -129,6 +145,11 @@ while game:
                 Passaros = classes_jogo.Passaro(imagem_passaro)
                 INIMIGOS.add(Passaros)
                 all_sprites.add(Passaros)    
+        
+        elif event.type ==pygame.KEYDOWN:
+            if event.key == pygame.K.p:
+                menu = True
+
 
 
     #draw:
