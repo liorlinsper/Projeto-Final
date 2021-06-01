@@ -28,6 +28,7 @@ pygame.display.set_caption("Froggy")
 
 clock = pygame.time.Clock()
 
+
 # PLACAR
 fonte = pygame.font.match_font('arial')
 
@@ -38,11 +39,22 @@ def draw_text(surf,text,tamanho,x,y):
     text_rect.midtop = (x,y)
     surf.blit(text_surf, text_rect)
 
+#VIDAS
+def draw_lives(surf, x, y, lives, img):
+    for i in range(lives):
+        img_rect = img.get_rect()
+        img_rect.x = x +30 * i
+        img_rect.y = y
+        surf.blit(img, img_rect)
+
 # IMAGENS
 imagem_libelula = pygame.image.load(os.path.join(pasta_imagens, "libelula.png")).convert()
 imagem_cachorro = pygame.image.load(os.path.join(pasta_imagens, "cachorro.png")).convert()
 imagem_cobra = pygame.image.load(os.path.join(pasta_imagens, "snake.png")).convert()
 imagem_passaro = pygame.image.load(os.path.join(pasta_imagens, "passaro.png")).convert()
+imagem_coracao = pygame.image.load(os.path.join(pasta_imagens, "coracao.png")).convert()
+imagem_coracao = pygame.transform.scale(imagem_coracao, (80, 80))
+imagem_coracao.set_colorkey(preto)
 background = pygame.image.load(os.path.join(pasta_imagens, "terra.png")).convert()
 background2 = pygame.image.load(os.path.join(pasta_imagens, "FundoMenu.png")).convert()
 
@@ -103,9 +115,9 @@ while game:
         JOGADOR.lives -= 1
 
     #Se algum mob atinge o jogador
-    if JOGADOR.lives == 0:
-        running = False
-        
+    if JOGADOR.lives <= 0:
+        menu =  True
+
     #Pontuação:
     pontos = pygame.sprite.spritecollide(JOGADOR, LIBELULAS, True)
     if len(pontos) > 0:
@@ -164,6 +176,7 @@ while game:
     LIBELULAS.draw(window)
     pygame.display.flip()
     draw_text(window,"pontuação: {0}".format(score), 30, WIDTH/2, 10 )
+    draw_lives(window , WIDTH - 250, 7, JOGADOR.lives, imagem_coracao)
 
 # Atualização do estado do jogo:
     all_sprites.update()

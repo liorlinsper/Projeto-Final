@@ -122,7 +122,7 @@ class Passaro(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (120, 80))
         self.image.set_colorkey(WHITE)
         self.rect = self.image.get_rect()
-        self.radius = 45
+        self.radius = 40
         # pygame.draw.circle(self.image, BLACK, self.rect.center, self.radius)
         self.rect.y = random.randrange(50,100)
         self.rect.x = 0
