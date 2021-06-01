@@ -24,10 +24,19 @@ class Jogador(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH/2
         self.rect.bottom = HEIGHT - 10
+        self.lives = 3
+        self.hidden = False
+        self.hide_timer = pygame.time.get_ticks()
         # VELOCIDADE:
         self.x_speed = 0
         self.y_speed = 0 
     
+    def hide(self):
+        # esconde jogador temporariamente
+        self.hidden = True 
+        self.hide_timer = pygame.time.get_ticks() 
+        self.rect.center = (WIDTH / 2, HEIGHT + 200)
+
     def update(self):
         self.x_speed = 0
         self.y_speed = 0 
@@ -53,6 +62,15 @@ class Jogador(pygame.sprite.Sprite):
 
         self.rect.x += self.x_speed
         self.rect.y += self.y_speed 
+
+        if self.hidden: 
+            self.rect.centerx = WIDTH + 100 
+            self.rect.bottom = HEIGHT + 100 
+
+        if self.hidden and pygame.time.get_ticks() - self.hide_timer > 1000:
+            self.hidden = False
+            self.rect.centerx = WIDTH / 2
+            self.rect.bottom = HEIGHT - 10
 
 # INIMIGOS
 

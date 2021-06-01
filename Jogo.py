@@ -98,9 +98,14 @@ while game:
 
     #colisão
     atinge = pygame.sprite.spritecollide(JOGADOR, INIMIGOS, False, pygame.sprite.collide_circle)
-    if atinge:
-        menu = True
+    if atinge: 
+        JOGADOR.hide()
+        JOGADOR.lives -= 1
 
+    #Se algum mob atinge o jogador
+    if JOGADOR.lives == 0:
+        running = False
+        
     #Pontuação:
     pontos = pygame.sprite.spritecollide(JOGADOR, LIBELULAS, True)
     if len(pontos) > 0:
