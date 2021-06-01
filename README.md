@@ -9,7 +9,7 @@ Daniel Haggiag,
 Lior Lerner.
 
 Resumo do jogo:
-O personagem controlado pelo jogador é o sapo, e tem como bjetivo pegar o máximo de libélulas possíveis sem colidir con os outros animais.
+O personagem controlado pelo jogador é o sapo, e tem como objetivo pegar o máximo de libélulas possíveis sem colidir com os outros animais.
 
 Conforme são coletadas as libéluas, o jogo se torna cada vez mais díficil, surgindo cada vez mais inimigos que devem ser evitados.
 

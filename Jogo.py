@@ -127,43 +127,43 @@ while game:
         LIBELULAS.add(libelulas)
 
     # SPAWNS PARA AUMENTAR A DIFICULDADE:
-        # 2 libéluas:
-        if score == 3 and (score != score_anterior):
+        # 4 libéluas:
+        if score == 4 and (score != score_anterior):
             score_anterior = score
             for n in range(2):
                 Cobras = classes_jogo.Cobra(imagem_cobra)
                 INIMIGOS.add(Cobras)
                 all_sprites.add(Cobras)
-        # 5 libéluas:
-    if score == 5 and (score != score_anterior):
+        # 8 libéluas:
+    if score == 8 and (score != score_anterior):
         score_anterior = score
         for n in range(2):
             Cachorros = classes_jogo.Cachorro(imagem_cachorro)
             INIMIGOS.add(Cachorros)
             all_sprites.add(Cachorros)
-        #8 libélulas:
-    if score == 8 and (score != score_anterior):
+        #12 libélulas:
+    if score == 12 and (score != score_anterior):
         score_anterior = score   
         for n in range(1):
             Cachorros = classes_jogo.Cachorro(imagem_cachorro)
             INIMIGOS.add(Cachorros)
             all_sprites.add(Cachorros)
-        #10 libélulas:
-        if score == 10 and (score != score_anterior):
+        #16 libélulas:
+        if score == 16 and (score != score_anterior):
             score_anterior = score
             for n in range(2):
                 Cobras = classes_jogo.Cobra(imagem_cobra)
                 INIMIGOS.add(Cobras)
                 all_sprites.add(Cobras)
-        # >= 12 libélulas:
-        if score == 12 and (score != score_anterior):
+        # >= 20 libélulas:
+        if score == 20 and (score != score_anterior):
             score_anterior = score
             for n in range(1):
                 Passaros = classes_jogo.Passaro(imagem_passaro)
                 INIMIGOS.add(Passaros)
                 all_sprites.add(Passaros)    
         
-        elif event.type ==pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K.p:
                 menu = True
 
