@@ -116,7 +116,7 @@ while game:
 
     #Se algum mob atinge o jogador
     if JOGADOR.lives <= 0:
-        menu =  True
+        pygame.quit()
 
     #Pontuação:
     pontos = pygame.sprite.spritecollide(JOGADOR, LIBELULAS, True)
@@ -164,7 +164,7 @@ while game:
                 all_sprites.add(Passaros)    
         
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K.p:
+            if event.key == pygame.K_p:
                 menu = True
 
 
