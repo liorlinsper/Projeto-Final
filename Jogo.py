@@ -83,6 +83,10 @@ background = pygame.image.load(os.path.join(pasta_imagens, "terra.png")).convert
 background2 = pygame.image.load(os.path.join(pasta_imagens, "FundoMenu.png")).convert()
 background3 = pygame.image.load(os.path.join(pasta_imagens, "gameover.png")).convert()
 
+#SONS
+som_ponto = pygame.mixer.Sound(os.path.join(pasta_sound, "ponto.mp3"))
+som_morte = pygame.mixer.Sound(os.path.join(pasta_sound, "morte.mp3"))
+
 #Sprites:
 all_sprites = pygame.sprite.Group()
 JOGADOR = classes_jogo.Jogador()
@@ -137,6 +141,7 @@ while game:
     if atinge: 
         JOGADOR.hide()
         JOGADOR.lives -= 1
+        som_morte.play()
 
     #Se algum mob atinge o jogador
     if JOGADOR.lives <= 0:
@@ -168,6 +173,7 @@ while game:
         score += 1
         libelulas = classes_jogo.libelula(imagem_libelula)
         LIBELULAS.add(libelulas)
+        som_ponto.play()
 
     # SPAWNS PARA AUMENTAR A DIFICULDADE:
         # 4 libéluas:
