@@ -47,6 +47,31 @@ def draw_lives(surf, x, y, lives, img):
         img_rect.y = y
         surf.blit(img, img_rect)
 
+#pausa
+def paused():
+    paused = True
+    while paused:
+        for event in pygame.get():
+            if event.type == QUIT:
+                pygame.quit()
+                quit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == K_c:
+                paused = False
+
+            elif event.key == K_q:
+                pygame.quit()
+                quit()
+            
+        window.fill((0,0,0))
+        clock.tick(30)
+        window.blit(background,(0,0))
+        pygame.display.update()
+        clock.tick(5)
+
+
+
+
 # IMAGENS
 imagem_libelula = pygame.image.load(os.path.join(pasta_imagens, "libelula.png")).convert()
 imagem_cachorro = pygame.image.load(os.path.join(pasta_imagens, "cachorro.png")).convert()
@@ -57,7 +82,7 @@ imagem_coracao = pygame.transform.scale(imagem_coracao, (80, 80))
 imagem_coracao.set_colorkey(preto)
 background = pygame.image.load(os.path.join(pasta_imagens, "terra.png")).convert()
 background2 = pygame.image.load(os.path.join(pasta_imagens, "FundoMenu.png")).convert()
-
+background3 = pygame.image.load(os.path.join(pasta_imagens, "gameover.png")).convert()
 
 #Sprites:
 all_sprites = pygame.sprite.Group()
@@ -85,7 +110,7 @@ score_anterior = 0
 # Loop Principal:
 menu = True
 game = True
-
+over= False
 while game:
     clock.tick(FPS)
     
@@ -116,7 +141,26 @@ while game:
 
     #Se algum mob atinge o jogador
     if JOGADOR.lives <= 0:
-        pygame.quit()
+        over = True
+
+    while over:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            
+        window.fill((0,0,0))
+        clock.tick(30)
+        window.blit(background3,(0,0))
+        pygame.display.update()
+
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game = False
+
+
+
 
     #Pontuação:
     pontos = pygame.sprite.spritecollide(JOGADOR, LIBELULAS, True)
@@ -163,12 +207,10 @@ while game:
                 INIMIGOS.add(Passaros)
                 all_sprites.add(Passaros)    
         
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_p:
-                menu = True
-
-
-
+        #se apertar a tecla p o jogo deve rodar a função de pausar.
+    elif event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_p:
+            paused()
     #draw:
     window.fill((branco))
     window.blit(background, (0, 0))
