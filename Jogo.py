@@ -50,6 +50,7 @@ def draw_lives(surf, x, y, lives, img):
 #pausa
 def paused():
     paused = True
+    game = False
     while paused:
         for event in pygame.get():
             if event.type == QUIT:
@@ -58,18 +59,16 @@ def paused():
         if event.type == pygame.KEYDOWN:
             if event.key == K_c:
                 paused = False
-
+                game = True
             elif event.key == K_q:
                 pygame.quit()
                 quit()
-            
+
         window.fill((0,0,0))
         clock.tick(30)
         window.blit(background,(0,0))
         pygame.display.update()
         clock.tick(5)
-
-
 
 
 # IMAGENS
