@@ -7,7 +7,7 @@ import classes_jogo
 #Localização dos assets:
 pasta_jogo = os.path.dirname(__file__)
 pasta_imagens = os.path.join(pasta_jogo, 'img')
-
+pasta_sound = os.path.join(pasta_jogo, 'sounds')
 
 
 # Variáveis:
