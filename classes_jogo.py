@@ -143,8 +143,8 @@ class libelula(pygame.sprite.Sprite):
         self.image.set_colorkey(WHITE)
         self.image = pygame.transform.scale(self.image, (30 , 40))
         self.rect = self.image.get_rect()
-        self.rect.y = random.randrange(0,600)
-        self.rect.x = random.randrange(0,600)
+        self.rect.y = random.randrange(200,600)
+        self.rect.x = random.randrange(200,600)
 
 
    
