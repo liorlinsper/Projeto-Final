@@ -172,12 +172,12 @@ while game:
 
     # SPAWNS PARA AUMENTAR A DIFICULDADE:
         # 4 libéluas:
-        if score == 4 and (score != score_anterior):
-            score_anterior = score
-            for n in range(2):
-                Cobras = classes_jogo.Cobra(imagem_cobra)
-                INIMIGOS.add(Cobras)
-                all_sprites.add(Cobras)
+    if score == 4 and (score != score_anterior):
+        score_anterior = score
+        for n in range(2):
+            Cobras = classes_jogo.Cobra(imagem_cobra)
+            INIMIGOS.add(Cobras)
+            all_sprites.add(Cobras)
         # 8 libéluas:
     if score == 8 and (score != score_anterior):
         score_anterior = score
@@ -193,22 +193,22 @@ while game:
             INIMIGOS.add(Cachorros)
             all_sprites.add(Cachorros)
         #16 libélulas:
-        if score == 16 and (score != score_anterior):
-            score_anterior = score
-            for n in range(2):
-                Cobras = classes_jogo.Cobra(imagem_cobra)
-                INIMIGOS.add(Cobras)
-                all_sprites.add(Cobras)
+    if score == 16 and (score != score_anterior):
+        score_anterior = score
+        for n in range(2):
+            Cobras = classes_jogo.Cobra(imagem_cobra)
+            INIMIGOS.add(Cobras)
+            all_sprites.add(Cobras)
         # >= 20 libélulas:
-        if score == 20 and (score != score_anterior):
-            score_anterior = score
-            for n in range(1):
-                Passaros = classes_jogo.Passaro(imagem_passaro)
-                INIMIGOS.add(Passaros)
-                all_sprites.add(Passaros)    
+    if score == 20 and (score != score_anterior):
+        score_anterior = score
+        for n in range(1):
+            Passaros = classes_jogo.Passaro(imagem_passaro)
+            INIMIGOS.add(Passaros)
+            all_sprites.add(Passaros)    
         
         #se apertar a tecla p o jogo deve rodar a função de pausar.
-    elif event.type == pygame.KEYDOWN:
+    if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_p:
             paused()
     #draw:
