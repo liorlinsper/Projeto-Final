@@ -47,29 +47,6 @@ def draw_lives(surf, x, y, lives, img):
         img_rect.y = y
         surf.blit(img, img_rect)
 
-#pausa
-def paused():
-    paused = True
-    game = False
-    while paused:
-        for event in pygame.get():
-            if event.type == QUIT:
-                pygame.quit()
-                quit()
-        if event.type == pygame.KEYDOWN:
-            if event.key == K_c:
-                paused = False
-                game = True
-            elif event.key == K_q:
-                pygame.quit()
-                quit()
-
-        window.fill((0,0,0))
-        clock.tick(30)
-        window.blit(background,(0,0))
-        pygame.display.update()
-        clock.tick(5)
-
 
 # IMAGENS
 imagem_libelula = pygame.image.load(os.path.join(pasta_imagens, "libelula.png")).convert()
@@ -213,9 +190,6 @@ while game:
             all_sprites.add(Passaros)    
         
         #se apertar a tecla p o jogo deve rodar a função de pausar.
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_p:
-            paused()
     #draw:
     window.fill((branco))
     window.blit(background, (0, 0))
