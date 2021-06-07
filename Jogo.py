@@ -63,6 +63,7 @@ background3 = pygame.image.load(os.path.join(pasta_imagens, "gameover.png")).con
 #SONS
 som_ponto = pygame.mixer.Sound(os.path.join(pasta_sound, "ponto.mp3"))
 som_morte = pygame.mixer.Sound(os.path.join(pasta_sound, "morte.mp3"))
+som_ponto.set_volume(0.1)
 
 #Sprites:
 all_sprites = pygame.sprite.Group()
@@ -116,10 +117,10 @@ while game:
     #colisão
     atinge = pygame.sprite.spritecollide(JOGADOR, INIMIGOS, False, pygame.sprite.collide_circle)
     if atinge: 
+        som_morte.play()
         JOGADOR.hide()
         JOGADOR.lives -= 1
-        som_morte.play()
-
+        
     #Se algum mob atinge o jogador
     if JOGADOR.lives <= 0:
         over = True
