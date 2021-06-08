@@ -14,3 +14,7 @@ O personagem controlado pelo jogador é o sapo, e tem como objetivo pegar o máx
 Conforme são coletadas as libéluas, o jogo se torna cada vez mais díficil, surgindo cada vez mais inimigos que devem ser evitados.
 
 Para controlar o personagem, são utilizadas as setas do teclado.
+
+
+Segue link para video no YouTube:
+https://youtu.be/zFDzYju3kKs
